@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
 '''
@@ -10,11 +11,21 @@ Created on 16-07-2012
 @license: open source
 '''
 
+import sys
 from modules import server
 
 def main():
     try:
-        svr = server.MultiThreadedHTTPServer(('127.0.0.1', 8080),
+        port = 8080
+        
+        if len(sys.argv) == 2:
+            port = int(sys.argv[1])
+        
+        if port == 0:
+            print "Port is not value 0!"
+            sys.exit(1)
+        
+        svr = server.MultiThreadedHTTPServer(('127.0.0.1', port),
                                              server.HTTPHandler)
         print 'Starting...'
         print 'Ctrl+C to stop.'
