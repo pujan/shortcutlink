@@ -1,0 +1,4 @@
+shortcutlink
+============
+
+zadanie
