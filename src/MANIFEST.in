@@ -1,0 +1,2 @@
+include shortcutlink.py README
+include html/*.*
